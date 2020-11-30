@@ -1,0 +1,38 @@
+Sat Nov 14 13:59:04 CET 2020 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Sat Nov 14 13:59:05 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0175-c6d6-5133-ffffe494b602 
+on database directory C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system\FoodOrderingDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=C:\Program Files\Java\jdk1.8.0_111\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Nov 14 13:59:14 CET 2020:
+Shutting down instance a816c00e-0175-c6d6-5133-ffffe494b602 on database directory C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system\FoodOrderingDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Sat Nov 14 13:59:14 CET 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = FoodOrderingDB), (DRDAID = {2}), Database 'FoodOrderingDB' shutdown.
+----------------------------------------------------------------
+Sat Nov 14 13:59:49 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a65c80ac-0175-c6d6-5133-ffffe494b602 
+on database directory C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system\FoodOrderingDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_111/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_111-b14
+user.dir=C:\Program Files\Java\jdk1.8.0_111\db
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Nov 14 20:40:21 CET 2020:
+Shutting down instance a65c80ac-0175-c6d6-5133-ffffe494b602 on database directory C:\Users\ryana\OneDrive\Desktop\Github\Food-ordering-system\FoodOrderingDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
+Sat Nov 14 20:40:21 CET 2020 Thread[DRDAConnThread_3,5,main] (DATABASE = FoodOrderingDB), (DRDAID = {18}), Database 'FoodOrderingDB' shutdown.
+----------------------------------------------------------------
+Sat Nov 14 21:19:25 CET 2020: Shutting down Derby engine
+----------------------------------------------------------------
