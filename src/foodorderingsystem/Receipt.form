@@ -54,7 +54,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="240" max="-2" attributes="0"/>
+                          <Component id="Printbtn" min="-2" pref="240" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -67,7 +67,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="paneltoprint" min="-2" pref="668" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="Printbtn" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -130,7 +130,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Servise Charge:"/>
+                    <Property name="text" type="java.lang.String" value="Service Charge:"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -262,8 +262,7 @@
                       </Border>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="0">
-                        <Column editable="false" title="Item No" type="java.lang.Object"/>
+                      <Table columnCount="3" rowCount="0">
                         <Column editable="false" title="Product Description" type="java.lang.Object"/>
                         <Column editable="false" title="Qty" type="java.lang.Object"/>
                         <Column editable="false" title="Total" type="java.lang.Object"/>
@@ -273,12 +272,7 @@
                     <Property name="autoscrolls" type="boolean" value="false"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="220" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -358,7 +352,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Paymant Type  :"/>
+                <Property name="text" type="java.lang.String" value="Payment Type  :"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -368,6 +362,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="paytxt">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="payment type here"/>
               </Properties>
               <Constraints>
@@ -378,7 +378,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="Printbtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="PRINT"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -391,7 +391,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrintbtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -5,11 +5,12 @@
  */
 package foodorderingsystem;
 
-import static com.sun.corba.se.impl.naming.cosnaming.NamingUtils.printException;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
@@ -20,8 +21,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -86,7 +88,7 @@ public class Receipt extends javax.swing.JFrame {
         Logobtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         paytxt = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Printbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -107,7 +109,7 @@ public class Receipt extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Servise Charge:");
+        jLabel4.setText("Service Charge:");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -146,11 +148,11 @@ public class Receipt extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Item No", "Product Description", "Qty", "Total"
+                "Product Description", "Qty", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -170,6 +172,9 @@ public class Receipt extends javax.swing.JFrame {
         ordertable.setSurrendersFocusOnKeystroke(true);
         ordertable.setUpdateSelectionOnSort(false);
         jScrollPane3.setViewportView(ordertable);
+        if (ordertable.getColumnModel().getColumnCount() > 0) {
+            ordertable.getColumnModel().getColumn(0).setPreferredWidth(220);
+        }
 
         paneltoprint.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 400, 220));
 
@@ -183,18 +188,20 @@ public class Receipt extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Paymant Type  :");
+        jLabel1.setText("Payment Type  :");
         paneltoprint.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 150, -1));
 
+        paytxt.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        paytxt.setForeground(new java.awt.Color(0, 0, 0));
         paytxt.setText("payment type here");
         paneltoprint.add(paytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 565, -1, 20));
 
-        jButton1.setText("PRINT");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Printbtn.setText("PRINT");
+        Printbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Printbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Printbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PrintbtnActionPerformed(evt);
             }
         });
 
@@ -209,7 +216,7 @@ public class Receipt extends javax.swing.JFrame {
                         .addComponent(paneltoprint, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,7 +225,7 @@ public class Receipt extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(paneltoprint, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -242,7 +249,7 @@ public class Receipt extends javax.swing.JFrame {
         this.setSize(screenSize.width, screenSize.height);
     }
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void PrintbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintbtnActionPerformed
     this.hide();
     Thank_You_Message tk= new Thank_You_Message();
       tk.show();
@@ -267,15 +274,18 @@ public class Receipt extends javax.swing.JFrame {
             }
     });
 
-        boolean ok = job.printDialog();
-        if(ok){
+      //  boolean ok = job.printDialog();
+     if(Printbtn.getModel().isEnabled()){
         try{
-
         job.print();
+        } catch (PrinterException ex) {
+           // Logger.getLogger(print.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch (PrinterException ex){}
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+     }
+     
+    }//GEN-LAST:event_PrintbtnActionPerformed
+
 public void displayorder(){
     String qry="SELECT * FROM SALESORDER";
     try{
@@ -285,13 +295,13 @@ public void displayorder(){
       ResultSet rs=st.executeQuery(qry);
       
       while(rs.next()){
-      String item   =String.valueOf(rs.getInt("ItemNo"));
+    //  String item   =String.valueOf(rs.getInt("ItemNo"));
       String Des   = rs.getString("Product");
       String qty   = String.valueOf(rs.getInt("QTY"));
       String price =String.valueOf(rs.getInt("Total"));
-      String tbdata[]={item,Des,qty,price};
+      String tbdata[]={Des,qty,price};
       DefaultTableModel model=(DefaultTableModel)ordertable.getModel();
-      model.addRow(new Object[]{item,Des, qty, price});
+      model.addRow(new Object[]{Des, qty, price});
       
     }
     }
@@ -366,7 +376,7 @@ public void GetTotal(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logobtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Printbtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
